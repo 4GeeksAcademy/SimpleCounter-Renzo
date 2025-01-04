@@ -9,10 +9,22 @@ import "bootstrap"
 import '../styles/index.css'
 
 // components
-import Home from './components/Home';
+import SecondCounter from './components/SecondCounter.jsx';
+import Home from './components/Home.jsx';
+
+let counter = 0;
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <Home/>
+    <SecondCounter seconds={counter}/>
   </React.StrictMode>,
 )
+
+setInterval(()=>{
+  ReactDOM.createRoot(document.getElementById('root')).render(
+    <React.StrictMode>
+      <SecondCounter seconds={counter} />
+    </React.StrictMode>,
+  )
+  counter++;
+}, 1000);
